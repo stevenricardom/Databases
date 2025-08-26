@@ -1,10 +1,9 @@
--- SELECT * FROM conferencias;
--- SELECT * FROM conferencistas;
--- SELECT * FROM eventos;
--- SELECT * FROM saloneseventos;
+SELECT * FROM empleado;
+SELECT * FROM empresa;
+SELECT * FROM trabaja;
 
-SELECT c.conferenciaNombre, pc.conferencistaNombre, pc.conferencistaApellido
-FROM conferencias c
-INNER JOIN conferencistas pc ON pc.conferencistaId = c.conferenciaId;
-
-
+SELECT e.nombre AS empleado, e.ciudad AS ciudad_empleado, em.nombre AS empresa, em.ciudad AS ciudad_empresa
+FROM empleado e
+JOIN trabaja t ON e.cedula = t.cedula
+JOIN empresa em ON t.nit_empresa = em.nit_empresa
+WHERE e.ciudad = em.ciudad;

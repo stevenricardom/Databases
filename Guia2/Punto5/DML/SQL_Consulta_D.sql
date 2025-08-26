@@ -1,7 +1,9 @@
-SELECT * FROM conferencias;
-SELECT * FROM conferencistas;
--- SELECT * FROM eventos;
--- SELECT * FROM saloneseventos;
+SELECT * FROM empleado;
+SELECT * FROM empresa;
+SELECT * FROM trabaja;
 
-SELECT c.conferenciaNombre, c.conferenciaDuracion , pc.conferencistaNombre FROM conferencias AS c
-JOIN conferencistas pc WHERE pc.conferencistaNombre = 'Erika' AND c.conferenciaDuracion = 1;
+SELECT e.nombre, e.calle, e.ciudad
+FROM empleado e
+JOIN trabaja t ON e.cedula = t.cedula
+JOIN empresa em ON t.nit_empresa = em.nit_empresa
+WHERE em.nombre = 'Banco de la ciudad';
